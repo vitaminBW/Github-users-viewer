@@ -10,6 +10,8 @@ import UIKit
 import ReactiveSwift
 import Alamofire
 
+private let detailSegue = "ShowUserDetail"
+
 class ListOfUsersViewController: BaseTableViewController<User, UserTableCell> {
     
     private var statePresenter: StatePresenter!
@@ -118,13 +120,19 @@ class ListOfUsersViewController: BaseTableViewController<User, UserTableCell> {
         actions.registerAction(TableActionEnum.Selected.rawValue)
             .observeValues { value in
                 if let user = value as? User {
-                    print("Open user: \(String(describing: user.login))")
+                    print("Open user: \(String(describing: user.followersUrl))")
+                    self.performSegue(withIdentifier: detailSegue, sender: user)
                 }
             }
 
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let listOfUserFollowersVC = segue.destination as? ListOfUserFollowers,
+            let user = sender as? User {
+            listOfUserFollowersVC.username = user.login
+        }
+    }
 
 }
 

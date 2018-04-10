@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C65B6187C99A748932F52D2D /* Pods_Github_users_viewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E022E198685402A7FD9E8B4B /* Pods_Github_users_viewer.framework */; };
 		D54F3D7B207D6183007671C8 /* LoadMoreUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F3D7A207D6183007671C8 /* LoadMoreUsersModel.swift */; };
+		D54F3D7E207D7806007671C8 /* ListOfUserFollowersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F3D7D207D7806007671C8 /* ListOfUserFollowersRequest.swift */; };
+		D54F3D81207D78C9007671C8 /* ListOfUserFollowers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F3D80207D78C9007671C8 /* ListOfUserFollowers.swift */; };
+		D54F3D84207D7A84007671C8 /* ListOfUserFollowersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F3D83207D7A84007671C8 /* ListOfUserFollowersModel.swift */; };
+		D54F3D86207D802F007671C8 /* LoadMoreUserFollowersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F3D85207D802F007671C8 /* LoadMoreUserFollowersModel.swift */; };
 		D5D1B57F207ACB07004DC5A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B57E207ACB07004DC5A3 /* AppDelegate.swift */; };
 		D5D1B581207ACB07004DC5A3 /* ListOfUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B580207ACB07004DC5A3 /* ListOfUsersViewController.swift */; };
 		D5D1B584207ACB07004DC5A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D1B582207ACB07004DC5A3 /* Main.storyboard */; };
@@ -43,6 +47,10 @@
 		4CB9BFA714E08DD5CFEAABD5 /* Pods-Github users viewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github users viewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github users viewer/Pods-Github users viewer.release.xcconfig"; sourceTree = "<group>"; };
 		D54F3D7A207D6183007671C8 /* LoadMoreUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreUsersModel.swift; sourceTree = "<group>"; };
 		D54F3D7C207D6366007671C8 /* Githubusersviewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Githubusersviewer-Bridging-Header.h"; sourceTree = "<group>"; };
+		D54F3D7D207D7806007671C8 /* ListOfUserFollowersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUserFollowersRequest.swift; sourceTree = "<group>"; };
+		D54F3D80207D78C9007671C8 /* ListOfUserFollowers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUserFollowers.swift; sourceTree = "<group>"; };
+		D54F3D83207D7A84007671C8 /* ListOfUserFollowersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUserFollowersModel.swift; sourceTree = "<group>"; };
+		D54F3D85207D802F007671C8 /* LoadMoreUserFollowersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreUserFollowersModel.swift; sourceTree = "<group>"; };
 		D5D1B57B207ACB07004DC5A3 /* Github users viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Github users viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5D1B57E207ACB07004DC5A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5D1B580207ACB07004DC5A3 /* ListOfUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +110,26 @@
 				E022E198685402A7FD9E8B4B /* Pods_Github_users_viewer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D54F3D7F207D787F007671C8 /* ListOfUsers */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1B580207ACB07004DC5A3 /* ListOfUsersViewController.swift */,
+				D5D1B5C9207C20F3004DC5A3 /* ListOfUsersModel.swift */,
+				D54F3D7A207D6183007671C8 /* LoadMoreUsersModel.swift */,
+			);
+			path = ListOfUsers;
+			sourceTree = "<group>";
+		};
+		D54F3D82207D7900007671C8 /* ListOfUserFollowers */ = {
+			isa = PBXGroup;
+			children = (
+				D54F3D80207D78C9007671C8 /* ListOfUserFollowers.swift */,
+				D54F3D83207D7A84007671C8 /* ListOfUserFollowersModel.swift */,
+				D54F3D85207D802F007671C8 /* LoadMoreUserFollowersModel.swift */,
+			);
+			path = ListOfUserFollowers;
 			sourceTree = "<group>";
 		};
 		D5D1B572207ACB07004DC5A3 = {
@@ -203,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				D5D1B5A8207ADA46004DC5A3 /* ListOfUsersRequest.swift */,
+				D54F3D7D207D7806007671C8 /* ListOfUserFollowersRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -264,9 +293,8 @@
 			isa = PBXGroup;
 			children = (
 				D5D1B5AF207B9660004DC5A3 /* BaseViewController.swift */,
-				D5D1B580207ACB07004DC5A3 /* ListOfUsersViewController.swift */,
-				D5D1B5C9207C20F3004DC5A3 /* ListOfUsersModel.swift */,
-				D54F3D7A207D6183007671C8 /* LoadMoreUsersModel.swift */,
+				D54F3D7F207D787F007671C8 /* ListOfUsers */,
+				D54F3D82207D7900007671C8 /* ListOfUserFollowers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -422,14 +450,18 @@
 			files = (
 				D5D1B5A9207ADA46004DC5A3 /* ListOfUsersRequest.swift in Sources */,
 				D5D1B5A7207AD805004DC5A3 /* APIRequestsConstants.swift in Sources */,
+				D54F3D86207D802F007671C8 /* LoadMoreUserFollowersModel.swift in Sources */,
 				D5D1B5BB207B98F2004DC5A3 /* EmptyStateView.swift in Sources */,
 				D5D1B59A207AD4A9004DC5A3 /* ConnectivityManager.swift in Sources */,
 				D5D1B5AC207ADC07004DC5A3 /* MapperProtocol.swift in Sources */,
+				D54F3D81207D78C9007671C8 /* ListOfUserFollowers.swift in Sources */,
 				D5D1B5C7207C19B1004DC5A3 /* UserTableCell.swift in Sources */,
 				D5D1B5BE207C1659004DC5A3 /* View.swift in Sources */,
 				D5D1B5A3207AD7D9004DC5A3 /* APIRequestManagerUtils.swift in Sources */,
 				D5D1B5B0207B9660004DC5A3 /* BaseViewController.swift in Sources */,
+				D54F3D84207D7A84007671C8 /* ListOfUserFollowersModel.swift in Sources */,
 				D5D1B5AE207ADD12004DC5A3 /* RouteManager.swift in Sources */,
+				D54F3D7E207D7806007671C8 /* ListOfUserFollowersRequest.swift in Sources */,
 				D5D1B5A5207AD7FB004DC5A3 /* APIResponseDeserializer.swift in Sources */,
 				D5D1B5B9207B9830004DC5A3 /* StatePresenter.swift in Sources */,
 				D5D1B595207AD167004DC5A3 /* APIRequestsManager.swift in Sources */,

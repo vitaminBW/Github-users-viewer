@@ -11,3 +11,5 @@
 "General:Nodata:Error" = "No data";
 
 "ListOfUsers:Title" = "List Of Users";
+
+"ListOfUserFollowers:Title" = "List Of Users Followers";

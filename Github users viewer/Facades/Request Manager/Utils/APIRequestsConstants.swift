@@ -26,6 +26,7 @@ let defaultCountPerPage: NSNumber = 25
 
 enum APIRequestsURL: String {
     case ListOfUsersURL = "users";
+    case ListOfUserFollowersURL = "users/(username)/followers";
 }
 
 protocol APIURLProviderProtocol : class {
