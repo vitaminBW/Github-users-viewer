@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Github users viewer
+
+  Created by Vitaliy Bal on 4/10/18.
+  Copyright © 2018 VitaliySoft. All rights reserved.
+*/
+
+
+"General:Nodata:Reload" = "Try again";
+"General:Nodata:Error" = "No data";
+
+"ListOfUsers:Title" = "List Of Users";
