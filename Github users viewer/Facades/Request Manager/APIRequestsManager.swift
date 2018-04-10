@@ -11,7 +11,7 @@ import ReactiveSwift
 
 protocol APIRequestsManagerProtocol: class {
 
-    func downloadUsers() -> SignalProducer<[User], NSError>
+    func downloadUsers(since: String, perPage: NSNumber) -> SignalProducer<[User], NSError>
 
 }
 
@@ -23,8 +23,8 @@ class APIRequestsManager: APIRequestsManagerProtocol {
         self.serviceManager = serviceManager
     }
     
-    func downloadUsers() -> SignalProducer<[User], NSError> {
-        return sendRequest(requestProvider: DownloadListOfUsersProvider(), deserializer: DownloadListOfUsersResponseDeserializer())
+    func downloadUsers(since: String, perPage: NSNumber) -> SignalProducer<[User], NSError> {
+        return sendRequest(requestProvider: DownloadListOfUsersProvider(perPage: perPage, since: since), deserializer: DownloadListOfUsersResponseDeserializer())
     }
 
 }

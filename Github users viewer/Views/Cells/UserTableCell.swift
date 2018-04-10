@@ -87,7 +87,7 @@ class UserTableCell: UITableViewCell, TableObjectCellProtocol {
         profileLinkLabel.sizeToFit()
         profileLinkLabel.left = userImageView.right + padding
         profileLinkLabel.top = loginLabel.bottom + 4
-        profileLinkLabel.width = width - userImageView.right
+        profileLinkLabel.width = width - (userImageView.width + 3 * padding)
 
     }
     

@@ -34,6 +34,12 @@ class BaseTableViewController<T, V:UITableViewCell & TableObjectCellProtocol> : 
         }
     }
     
+    var itemsCount: NSNumber {
+        get {
+            return NSNumber(value: self.items?.count ?? 0)
+        }
+    }
+    
     private var items: [T]?
     
     var actions: TableActions = TableActions()
@@ -58,6 +64,15 @@ class BaseTableViewController<T, V:UITableViewCell & TableObjectCellProtocol> : 
     func createModel (items: [T]?) {
         self.items = items
         self.tableViewController.tableView.reloadData()
+    }
+    
+    func addItemsToModel (items: [T]?) {
+        if let newItems = items {
+            for item in newItems {
+                self.items?.append(item)
+            }
+            self.tableViewController.tableView.reloadData()
+        }
     }
     
     // Delegate

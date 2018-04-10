@@ -10,9 +10,10 @@ import UIKit
 import ReactiveSwift
 
 class ListOfUsersModel: DataModel {
+    
     override func loadSignal() -> SignalProducer<AnyObject, NSError> {
 
-        return assembly.requestManager.downloadUsers().map({ users -> AnyObject in
+        return assembly.requestManager.downloadUsers(since: "0", perPage: defaultCountPerPage).map({ users -> AnyObject in
             return users as AnyObject
         })
 

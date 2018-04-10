@@ -8,6 +8,7 @@ target 'Github users viewer' do
     # Pods for Github users viewer
     pod 'Kingfisher', '~> 4.0'
     pod 'SVProgressHUD', '~> 2.2'
+    pod 'UIScrollView-InfiniteScroll', '~> 1.0.0'
 
     #NetWorking
     pod 'Alamofire', '~> 4.7'

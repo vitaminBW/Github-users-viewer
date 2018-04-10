@@ -22,6 +22,8 @@ enum ErrorCodes: Int {
 
 let GithubDomain = "com.github"
 
+let defaultCountPerPage: NSNumber = 25
+
 enum APIRequestsURL: String {
     case ListOfUsersURL = "users";
 }

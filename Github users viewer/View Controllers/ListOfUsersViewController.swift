@@ -14,6 +14,7 @@ class ListOfUsersViewController: BaseTableViewController<User, UserTableCell> {
     
     private var statePresenter: StatePresenter!
     private var model: ListOfUsersModel!
+    private var loadMoreModel: LoadMoreUsersModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +27,46 @@ class ListOfUsersViewController: BaseTableViewController<User, UserTableCell> {
         
         if AssemblyManager.shared.connectivityManager.isConnectedToInternet() == true {
             self.model.load()
-            self.statePresenter.showState(.loading)
+        }
+        
+        tableView.addInfiniteScroll { (tableView) -> Void in
+            // update table view
+//            self.loadMoreModel.since = self.itemsCount
+            self.loadMoreModel.load()
         }
     }
     
     private func setupModel() {
         model = ListOfUsersModel()
+        loadMoreModel = LoadMoreUsersModel()
+        
+        model.loadingSignal.observe(on: UIScheduler()).observe { [weak self] value in
+            switch (value) {
+            case let .value(object):
+                if object == true {
+                    DispatchQueue.main.async {
+                        self?.statePresenter.showState(.loading)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.statePresenter.hideStates()
+                    }
+                }
+            default:
+                break;
+            }
+        }
         
         model.completedSignal.observe(on: UIScheduler()).observe { [weak self] value in
             switch (value) {
             case let .value(object):
 
                 self?.createModel(items: object as? [User])
-                
+
+                if let items = object as? [User], let lastID = items.last?.ID {
+                    self?.loadMoreModel.since = String(lastID.intValue)
+                }
+
                 if let value = object as? Array<Any>, value.count == 0 {
                     self?.statePresenter?.showState(.nodata)
                 } else {
@@ -57,6 +85,27 @@ class ListOfUsersViewController: BaseTableViewController<User, UserTableCell> {
                 self?.statePresenter.showState(.error(error: error))
             case let .failed(error):
                 print("[ListOfUsersViewController] - \(error)")
+            default:
+                break;
+            }
+        }
+        
+        //load more
+        loadMoreModel.completedSignal.observe(on: UIScheduler()).observe { [weak self] value in
+            switch (value) {
+            case let .value(object):
+                
+                self?.addItemsToModel(items: object as? [User])
+                
+                if let items = object as? [User], let lastID = items.last?.ID {
+                    self?.loadMoreModel.since = String(lastID.intValue)
+                }
+                
+                DispatchQueue.main.async {
+                    // finish infinite scroll animation
+                    self?.tableView.finishInfiniteScroll()
+                }
+                
             default:
                 break;
             }

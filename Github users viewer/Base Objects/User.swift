@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class User {
     
-    var ID: String?
+    var ID: NSNumber?
     var login: String?
     var avatarUrl: String?
     var gravatarId: String?
@@ -42,7 +42,7 @@ extension User : MapperProtocol {
 
         let user = User()
         user.login = data["login"].string
-        user.ID = data["id"].string
+        user.ID = data["id"].number
         user.avatarUrl = data["avatar_url"].string
         user.gravatarId = data["gravatar_id"].string
         user.url = data["url"].string

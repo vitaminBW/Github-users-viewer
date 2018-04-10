@@ -11,11 +11,16 @@ import SwiftyJSON
 import Result
 
 struct DownloadListOfUsersProvider: APIRequestProvider {
+    
+    let perPage: NSNumber
+    let since: String
+    
     func provideRequest() -> Request {
         let request = Request(
             url: APIURLProviderLocator.sharedProvider.URL(url: .ListOfUsersURL)!,
             method: .GET,
             encoding: .URL,
+            params: ["since": since, "per_page": perPage],
             expectedContentTypes: ["application/json"]
         )
         return request
